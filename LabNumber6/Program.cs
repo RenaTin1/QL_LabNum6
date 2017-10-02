@@ -21,19 +21,19 @@ namespace LabNumber6
                 Console.WriteLine("Enter a line to be translated:"); //have user input a string
                 string str = Console.ReadLine().ToLower(); //read input and convert to lowercase
 
-                    if (str.StartsWith("a") || str.StartsWith("e") || str.StartsWith("i") || str.StartsWith("o") || str.StartsWith("u"))
-                    {
+                if (str.StartsWith("a") || str.StartsWith("e") || str.StartsWith("i") || str.StartsWith("o") || str.StartsWith("u"))
+                {
 
-                        Console.WriteLine(str + "way");
-                    }
-                    else
-                    {
+                    Console.WriteLine(str + "way");
+                }
+                else
+                {
 
-                        char[] chars = { 'a', 'e', 'i', 'o', 'u' }; //declare and index char
-                        int index = str.IndexOfAny(chars);
-                        Console.WriteLine(str.Substring(index) + "ay");// add "ay" to string
-                        Console.WriteLine("Translate another line? (y/n):");//ask user if they want to continue or not
-                        string UserChoice = Console.ReadLine();
+                    char[] chars = { 'a', 'e', 'i', 'o', 'u' }; //declare and index char
+                    int index = str.IndexOfAny(chars);
+                    Console.WriteLine(str.Substring(index) + str.Substring(0, index) + "ay");
+                    Console.WriteLine("Translate another line? (y/n):");//ask user if they want to continue or not
+                    string UserChoice = Console.ReadLine();
                         if (UserChoice == "N" || UserChoice == "No" || UserChoice == "no" || UserChoice == "n")
                         {
                             ProgramContinue = false;
