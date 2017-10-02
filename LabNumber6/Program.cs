@@ -14,13 +14,11 @@ namespace LabNumber6
             //Serena Tindle -- Lab#6
             bool ProgramContinue = true;
 
-            while ( ProgramContinue == true)
+            while (ProgramContinue == true)
             {
 
                 Console.WriteLine("Welcome to the Pig Latin Translator");
-                Console.WriteLine("Enter a line to be translated:"); //have user input a string
                 string str = Console.ReadLine().ToLower(); //read input and convert to lowercase
-
                 if (str.StartsWith("a") || str.StartsWith("e") || str.StartsWith("i") || str.StartsWith("o") || str.StartsWith("u"))
                 {
 
@@ -33,15 +31,36 @@ namespace LabNumber6
                     int index = str.IndexOfAny(chars);
                     Console.WriteLine(str.Substring(index) + str.Substring(0, index) + "ay");
                     Console.WriteLine("Translate another line? (y/n):");//ask user if they want to continue or not
-                    string UserChoice = Console.ReadLine();
-                        if (UserChoice == "N" || UserChoice == "No" || UserChoice == "no" || UserChoice == "n")
-                        {
-                            ProgramContinue = false;
-                        }
+                    string UserChoice = ValidateString(); //call validation method
+                    if (UserChoice == "no")
+                    {
+                        ProgramContinue = false;
                     }
-                  }
-            }
 
+
+                }
+            }
         }
+
+        public static string ValidateString()
+        {
+
+            bool Validate = true;
+            string UserInput="";
+            while (Validate == true)
+            {
+              UserInput = (Console.ReadLine());
+                if (UserInput != "yes" && UserInput != "no")
+                {
+                    Console.WriteLine("Please enter yes or no!");
+                }
+                else
+                    Validate = false;
+            }
+            return UserInput;
+        }
+
     }
+}
+
 
